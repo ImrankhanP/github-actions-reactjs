@@ -14,7 +14,12 @@ jobs:
         with:
             node-version: "12.x"
       - name: run dependencies
-        run: npm install
+        run: | 
+              npm install
+              npm run format:check 
+              npm test -- --coverage
+                env:
+                  CI:true
             
        
 
