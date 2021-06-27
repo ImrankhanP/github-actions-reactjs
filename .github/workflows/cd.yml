@@ -1,0 +1,26 @@
+name : "Continuos integration"
+
+on :
+    pull_request:
+       branches: [develop]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name:  Use a node version
+        uses: actions/setup-node@v1
+        with:
+            node-version: "12.x"
+      - name: run dependencies
+        run: | 
+              npm install
+              npm run format:check 
+              npm test -- --coverage
+                env:
+                  CI:true
+            
+       
+
+    
