@@ -1,0 +1,13 @@
+name : actions
+
+on : push
+
+
+jobs:
+  run-github-actions:
+   runs-on: ubuntu-latest
+   steps:
+     - name : installing modules
+       run : |
+              npm run install
+              npm run tests
