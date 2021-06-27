@@ -16,7 +16,7 @@ jobs:
       - name: run dependencies
         run: |
              npm install
-             npm format-check
+             npm format:check
              npm test -- --coverage
              env:
               CI:true
